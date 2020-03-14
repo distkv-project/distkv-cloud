@@ -5,6 +5,7 @@ import com.cloud.common.response.BaseController;
 import com.cloud.common.response.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class IndexApi extends BaseController {
 
-  @GetMapping("test")
+  @PostMapping("query")
   @DoAuth
-  public R testJWT() {
-    log.error("+++++++++++++++++OKOK>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    return ok();
+  public R query() {
+    //TODO (senyer)
+    return error("unimplemented");
+  }
+
+  @PostMapping("write")
+  @DoAuth
+  public R write() {
+    //TODO (senyer)
+    return error("unimplemented");
   }
 }

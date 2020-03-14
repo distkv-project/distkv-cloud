@@ -13,7 +13,6 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
   public R handHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex) {
-    log.error("Distkv Cloud Unsupported Request : {}", ex.toString());
     return new R(Msg.HTTP_REQUEST_ERROR, ex.getMessage());
   }
 

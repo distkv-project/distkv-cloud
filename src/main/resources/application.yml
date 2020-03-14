@@ -16,6 +16,6 @@ spring:
 # custom jwt expire time
 jwt:
   token:
-    expire-time: 180000
+    expire-time: 1800000  # 30minute
   refresh-token:
-    expire-time: 2592000000
+    expire-time: 2592000000 # 30day

@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/run")
 public class RunnerApi extends BaseController {
 
+  /**
+   * Navigate to run dashboard
+   * @return run/run.html
+   */
   @GetMapping()
   @NoAuth
   public String index() {

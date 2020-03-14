@@ -28,7 +28,6 @@ public class JwtUtil {
   }
 
 
-
   private static final String USERNAME = Magic.USERNAME;
 
   public static boolean verify(String token, String username, String secret) {
@@ -40,7 +39,6 @@ public class JwtUtil {
       verifier.verify(token);
       return true;
     } catch (Exception exception) {
-      log.error("JWT verify failed. {1}", exception);
       return false;
     }
   }
@@ -50,7 +48,6 @@ public class JwtUtil {
       DecodedJWT jwt = JWT.decode(token);
       return jwt.getClaim(USERNAME).asString();
     } catch (JWTDecodeException e) {
-      log.error("JWT decode failed. {1}", e);
       return null;
     }
   }
