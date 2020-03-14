@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Distkv restful request by distkv-cloud
+ * Distkv restful request by distkv-cloud.
  */
 @RestController
 @RequestMapping("/")

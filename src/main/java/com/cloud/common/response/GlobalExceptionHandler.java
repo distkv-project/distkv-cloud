@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(Exception.class)
   public R handUnkonwException(Exception ex) {
-    log.error(">>>> Inner error  {} ", ex.toString());
+    log.error("Unknown error  {} ", ex.toString());
     return new R(Msg.ERROR, ex.getMessage());
   }
 }

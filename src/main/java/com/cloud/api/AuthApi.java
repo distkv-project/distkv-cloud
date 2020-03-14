@@ -23,10 +23,10 @@ public class AuthApi extends BaseController {
   private UserService userService;
 
   /**
-   * Get a token by username and password
+   * Get a token by username and password.
    *
-   * @param user user info
-   * @return token
+   * @param user user info.
+   * @return token info.
    */
   @PostMapping("/")
   @NoAuth

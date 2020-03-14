@@ -1,10 +1,6 @@
 package com.cloud.common.intercepters;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.cloud.common.annotations.DoAuth;
 import com.cloud.common.annotations.NoAuth;
 import com.cloud.common.constants.Magic;
@@ -28,7 +24,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest httpServletRequest,
       HttpServletResponse httpServletResponse, Object object) throws Exception {
 
-    // Get token from header
+    // Get token from header.
     String token = httpServletRequest.getHeader(Magic.TOKEN);
 
     if (!(object instanceof HandlerMethod)) {
@@ -37,7 +33,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     HandlerMethod handlerMethod = (HandlerMethod) object;
     Method method = handlerMethod.getMethod();
 
-    // check NoAuth annotations
+    // Check NoAuth annotations.
     if (method.isAnnotationPresent(NoAuth.class)) {
       NoAuth noAuth = method.getAnnotation(NoAuth.class);
       if (noAuth.required()) {
@@ -45,7 +41,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
       }
     }
 
-    // check DoAuth annotations
+    // Check DoAuth annotations.
     if (method.isAnnotationPresent(DoAuth.class)) {
       DoAuth doAuth = method.getAnnotation(DoAuth.class);
       if (doAuth.required()) {
@@ -65,7 +61,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
           throw new RuntimeException("Token is invalid. Unknown user");
         }
 
-        // check token
+        // Check token is valid.
         if (!JwtUtil.verify(token, username, user.getPassword())) {
           throw new RuntimeException("Invalid token");
         }

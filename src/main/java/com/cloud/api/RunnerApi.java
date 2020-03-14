@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Distkv dashboard
+ * Distkv dashboard.
  */
 @Controller
 @RequestMapping("/run")
 public class RunnerApi extends BaseController {
 
   /**
-   * Navigate to run dashboard
+   * Navigate to run dashboard.
    * @return run/run.html
    */
   @GetMapping()
