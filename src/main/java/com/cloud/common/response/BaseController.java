@@ -1,7 +1,7 @@
-package com.cloud.dcloud.api;
+package com.cloud.common.response;
 
-import com.cloud.dcloud.common.constants.Msg;
-import com.cloud.dcloud.common.response.R;
+import com.cloud.common.constants.Msg;
+import com.cloud.common.response.R;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;

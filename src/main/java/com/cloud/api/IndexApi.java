@@ -1,4 +1,4 @@
-package com.cloud.dcloud.api;
+package com.cloud.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/")
-public class IndexController {
+public class IndexApi {
 
 }

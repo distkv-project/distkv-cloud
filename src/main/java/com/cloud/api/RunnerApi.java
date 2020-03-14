@@ -1,6 +1,6 @@
-package com.cloud.dcloud.api;
+package com.cloud.api;
 
-import lombok.extern.slf4j.Slf4j;
+import com.cloud.common.response.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/run")
-public class RunnerController extends BaseController{
+public class RunnerApi extends BaseController {
 
   @GetMapping()
   public String index() {

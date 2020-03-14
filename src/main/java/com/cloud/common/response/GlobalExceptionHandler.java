@@ -1,6 +1,6 @@
-package com.cloud.dcloud.common.response;
+package com.cloud.common.response;
 
-import com.cloud.dcloud.common.constants.Msg;
+import com.cloud.common.constants.Msg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.cloud.dcloud.common.constants;
+package com.cloud.common.constants;
 
 public enum Msg {
 

@@ -1,6 +1,6 @@
-package com.cloud.dcloud.common.response;
+package com.cloud.common.response;
 
-import com.cloud.dcloud.common.constants.Msg;
+import com.cloud.common.constants.Msg;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import lombok.Data;

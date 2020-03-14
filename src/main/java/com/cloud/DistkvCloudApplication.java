@@ -1,4 +1,4 @@
-package com.cloud.dcloud;
+package com.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

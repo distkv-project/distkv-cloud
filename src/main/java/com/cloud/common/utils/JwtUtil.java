@@ -1,10 +1,11 @@
-package com.cloud.dcloud.common.utils;
+package com.cloud.common.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.cloud.common.constants.Magic;
 import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +15,7 @@ public class JwtUtil {
   //TODO (senyer) improve this
   private static final long EXPIRE_TIME = (long) (3 * 60 * 1000);
 
-  private static final String USERNAME = "username";
+  private static final String USERNAME = Magic.USERNAME;
 
   public static boolean verify(String token, String username, String secret) {
     try {
