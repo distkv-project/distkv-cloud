@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+  resources:
+    static-locations: classpath:/static/,classpath:/templates/
