@@ -20,14 +20,14 @@ public class IndexApi extends BaseController {
   @PostMapping("query")
   @DoAuth
   public R query() {
-    //TODO (senyer)
+    //TODO (senyer) finish it.
     return error("unimplemented");
   }
 
   @PostMapping("write")
   @DoAuth
   public R write() {
-    //TODO (senyer)
+    //TODO (senyer) finish it.
     return error("unimplemented");
   }
 }

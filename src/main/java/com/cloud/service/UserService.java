@@ -23,7 +23,7 @@ public class UserService {
    * Check if user exists by username.
    *
    * @param username username.
-   * @return user info from local json file.
+   * @return User info from local json file.
    */
   public User getUserByUsername(String username) {
     List<User> users = readUserFile();

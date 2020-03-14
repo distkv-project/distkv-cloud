@@ -25,13 +25,13 @@ public class AuthApi extends BaseController {
   /**
    * Get a token by username and password.
    *
-   * @param user user info.
-   * @return token info.
+   * @param user User info.
+   * @return Token info.
    */
   @PostMapping("/")
   @NoAuth
   public R authc(@NotNull User user) {
-    //TODO (senyer) Add validate check param
+    //TODO (senyer) Add validate check param.
     boolean authc = userService.authc(user);
     if (authc) {
       TokenDTO tokenDTO = new TokenDTO();
