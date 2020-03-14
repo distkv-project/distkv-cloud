@@ -1,22 +1,10 @@
 [
   {
-    "username": "jovany-wang",
-    "password": "jw123456"
+    "username": "test",
+    "password": "test123456"
   },
   {
-    "username": "wangkai",
-    "password": "wk123456"
-  },
-  {
-    "username": "wangtuo",
-    "password": "wt123456"
-  },
-  {
-    "username": "meijie",
-    "password": "mj123456"
-  },
-  {
-    "username": "tansen",
-    "password": "ts123456"
+    "username": "test2",
+    "password": "test123456"
   }
 ]
