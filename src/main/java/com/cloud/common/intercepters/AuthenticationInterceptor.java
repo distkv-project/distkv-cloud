@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
   @Resource
-  UserService userService;
+  private UserService userService;
 
   @Override
   public boolean preHandle(HttpServletRequest httpServletRequest,
@@ -43,6 +43,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         return true;
       }
     }
+
     // check DoAuth annotations
     if (method.isAnnotationPresent(DoAuth.class)) {
       DoAuth doAuth = method.getAnnotation(DoAuth.class);

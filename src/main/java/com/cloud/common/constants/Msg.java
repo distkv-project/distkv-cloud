@@ -3,10 +3,11 @@ package com.cloud.common.constants;
 public enum Msg {
 
   OK("OK", 200),
+  ERROR("Error", 400),
   AUTHORIZATION("Unauthorized", 401),
   AUTHENTICATION("Authentication failure", 402),
   HTTP_REQUEST_ERROR("Unsupported Request", 403),
-  ERROR("Inner Error", 500);
+  INNER_ERROR("Inner Error", 500);
 
   private String desc;
   private Integer statusCode;

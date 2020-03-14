@@ -33,6 +33,10 @@ public class BaseController {
     return new R(Msg.ERROR);
   }
 
+  public R error(String message) {
+    return new R(Msg.ERROR, message);
+  }
+
   public R error(Msg msg) {
     return new R(msg);
   }

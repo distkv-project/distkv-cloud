@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class JwtUtil {
 
   //TODO (senyer) improve this
-  private static final long EXPIRE_TIME = (long) (3 * 60 * 1000);
+  private static final long EXPIRE_TIME = 3 * 60 * 1000;
 
   private static final String USERNAME = Magic.USERNAME;
 
@@ -26,6 +26,7 @@ public class JwtUtil {
       verifier.verify(token);
       return true;
     } catch (Exception exception) {
+      log.error("JWT verify failed. {1}", exception);
       return false;
     }
   }
@@ -35,6 +36,7 @@ public class JwtUtil {
       DecodedJWT jwt = JWT.decode(token);
       return jwt.getClaim(USERNAME).asString();
     } catch (JWTDecodeException e) {
+      log.error("JWT verify failed. {1}", e);
       return null;
     }
   }
@@ -46,6 +48,5 @@ public class JwtUtil {
             .withClaim(USERNAME, username)
             .withExpiresAt(date)
             .sign(algorithm);
-
   }
 }
