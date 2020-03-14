@@ -25,10 +25,16 @@ public class UserService {
    * @param username username.
    * @return user info from local json file.
    */
-  public User validate(String username) {
-    //TODO check from json file
-    return new User();
+  public User getUserByUsername(String username) {
+    List<User> users = readUserFile();
+    for (User user : users) {
+      if (username.equals(user.getUsername())) {
+        return user;
+      }
+    }
+    return null;
   }
+
 
   /**
    * Check the validity of user information.

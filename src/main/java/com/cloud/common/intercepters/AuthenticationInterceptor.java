@@ -8,6 +8,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.cloud.common.annotations.DoAuth;
 import com.cloud.common.annotations.NoAuth;
 import com.cloud.common.constants.Magic;
+import com.cloud.common.utils.JwtUtil;
 import com.cloud.dto.User;
 import com.cloud.service.UserService;
 import javax.annotation.Resource;
@@ -54,21 +55,18 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         String username;
         try {
-          username = JWT.decode(token).getAudience().get(0);
+          username = JwtUtil.getUsername(token);
         } catch (JWTDecodeException j) {
           throw new RuntimeException("Token decode failed.");
         }
 
-        User user = userService.validate(username);
+        User user = userService.getUserByUsername(username);
         if (user == null) {
           throw new RuntimeException("Authentication failed : User not exist");
         }
 
         // check token
-        JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
-        try {
-          jwtVerifier.verify(token);
-        } catch (JWTVerificationException e) {
+        if (!JwtUtil.verify(token, username, user.getPassword())) {
           throw new RuntimeException("Authentication failed : Error password");
         }
         return true;

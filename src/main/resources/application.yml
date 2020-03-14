@@ -12,3 +12,10 @@ spring:
     encoding: UTF-8
   resources:
     static-locations: classpath:/static/,classpath:/templates/
+
+# custom jwt expire time
+jwt:
+  token:
+    expire-time: 180000
+  refresh-token:
+    expire-time: 2592000000

@@ -8,12 +8,26 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.cloud.common.constants.Magic;
 import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class JwtUtil {
 
-  //TODO (senyer) improve this
-  private static final long EXPIRE_TIME = 3 * 60 * 1000;
+  private static long EXPIRE_TIME ;
+  @Value(value = "${jwt.token.expire-time}")
+  public void setExpireTime(long expireTime) {
+    EXPIRE_TIME = expireTime;
+  }
+
+  private static long REFRESH_EXPIRE_TIME ;
+  @Value(value = "${jwt.refresh-token.expire-time}")
+  public void setRefreshExpireTime(long expireTime) {
+    REFRESH_EXPIRE_TIME = expireTime;
+  }
+
+
 
   private static final String USERNAME = Magic.USERNAME;
 
@@ -48,5 +62,14 @@ public class JwtUtil {
             .withClaim(USERNAME, username)
             .withExpiresAt(date)
             .sign(algorithm);
+  }
+
+  public static String signRefreshToken(String username, String secret) {
+    Date date = new Date(System.currentTimeMillis() + REFRESH_EXPIRE_TIME);
+    Algorithm algorithm = Algorithm.HMAC256(secret);
+    return JWT.create()
+        .withClaim(USERNAME, username)
+        .withExpiresAt(date)
+        .sign(algorithm);
   }
 }

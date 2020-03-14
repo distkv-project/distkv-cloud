@@ -2,9 +2,11 @@ package com.cloud.api;
 
 import static com.cloud.common.constants.Msg.AUTHENTICATION;
 
+import com.cloud.common.annotations.DoAuth;
 import com.cloud.common.response.BaseController;
 import com.cloud.common.response.R;
 import com.cloud.common.utils.JwtUtil;
+import com.cloud.dto.TokenDTO;
 import com.cloud.dto.User;
 import com.cloud.service.UserService;
 import javax.annotation.Resource;
@@ -31,8 +33,12 @@ public class AuthApi extends BaseController {
     //TODO (senyer) Add validate check param
     boolean authc = userService.authc(user);
     if (authc) {
+      TokenDTO tokenDTO = new TokenDTO();
+      String refreshToken = JwtUtil.signRefreshToken(user.getUsername(), user.getPassword());
       String token = JwtUtil.sign(user.getUsername(), user.getPassword());
-      return ok(token);
+      tokenDTO.setRefresh_token(refreshToken);
+      tokenDTO.setToken(token);
+      return ok(tokenDTO);
     }
     return error(AUTHENTICATION);
   }
@@ -44,9 +50,15 @@ public class AuthApi extends BaseController {
    * @return token
    */
   @PostMapping("refreshToken")
+  @DoAuth
   public R getUserInfo(String refreshToken) {
-    //TODO finish it.
-    return ok();
+    User user = userService.getUserByUsername(JwtUtil.getUsername(refreshToken));
+    if (user != null) {
+      if (JwtUtil.verify(refreshToken, user.getUsername(), user.getPassword())) {
+        return ok(JwtUtil.sign(user.getUsername(), user.getPassword()));
+      }
+    }
+    return error("Token Expired!");
   }
 
 }

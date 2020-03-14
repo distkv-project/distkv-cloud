@@ -5,9 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
   @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
@@ -18,7 +19,7 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(Exception.class)
   public R handUnkonwException(Exception ex) {
-    log.error("Inner error  {} ", ex.toString());
+    log.error(">>>> Inner error  {} ", ex.toString());
     return new R(Msg.ERROR, ex.getMessage());
   }
 }
