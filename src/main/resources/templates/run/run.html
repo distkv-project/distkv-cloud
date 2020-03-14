@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Distkv, Ready Go!</title>
+  <script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../static/css/run.css">
+</head>
+<body>
+<br id="my_area">
+<div class="link link--kukuri">
+  <p>Please type your Distkv command.</p>
+</div>
+<div>
+  <span id="tss"> dkv-cli> welcome ~ </span>
+</div>
+<div id="display_area">
+  <br/>
+</div>
+<label for="command_text"></label><input type="text" name="text" id="command_text" class="tl-price-input" style="width: 300px; height: 40px; font-size: 16px">
+<button type="button" class="ant-btn ant-btn-red" style="width: 100px; height: 30px; font-size: 14px" onclick="loadJSON()">run</button>
+</body>
+</html>
