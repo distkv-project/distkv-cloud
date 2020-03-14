@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "jwt.token.expire-time",
-      "type": "java.lang.String",
-      "description": "Description for jwt.token.expire-time."
-  }
-] }

@@ -50,7 +50,7 @@ public class JwtUtil {
       DecodedJWT jwt = JWT.decode(token);
       return jwt.getClaim(USERNAME).asString();
     } catch (JWTDecodeException e) {
-      log.error("JWT verify failed. {1}", e);
+      log.error("JWT decode failed. {1}", e);
       return null;
     }
   }

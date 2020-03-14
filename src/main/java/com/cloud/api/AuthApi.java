@@ -2,7 +2,7 @@ package com.cloud.api;
 
 import static com.cloud.common.constants.Msg.AUTHENTICATION;
 
-import com.cloud.common.annotations.DoAuth;
+import com.cloud.common.annotations.NoAuth;
 import com.cloud.common.response.BaseController;
 import com.cloud.common.response.R;
 import com.cloud.common.utils.JwtUtil;
@@ -29,6 +29,7 @@ public class AuthApi extends BaseController {
    * @return token
    */
   @PostMapping("/")
+  @NoAuth
   public R authc(@NotNull User user) {
     //TODO (senyer) Add validate check param
     boolean authc = userService.authc(user);
@@ -50,7 +51,7 @@ public class AuthApi extends BaseController {
    * @return token
    */
   @PostMapping("refreshToken")
-  @DoAuth
+  @NoAuth
   public R getUserInfo(String refreshToken) {
     User user = userService.getUserByUsername(JwtUtil.getUsername(refreshToken));
     if (user != null) {

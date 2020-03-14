@@ -50,7 +50,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
       DoAuth doAuth = method.getAnnotation(DoAuth.class);
       if (doAuth.required()) {
         if (token == null) {
-          throw new RuntimeException("Authentication failed.");
+          throw new RuntimeException("Authentication failed. Need a valid token");
         }
 
         String username;
@@ -62,12 +62,12 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         User user = userService.getUserByUsername(username);
         if (user == null) {
-          throw new RuntimeException("Authentication failed : User not exist");
+          throw new RuntimeException("Token is invalid. Unknown user");
         }
 
         // check token
         if (!JwtUtil.verify(token, username, user.getPassword())) {
-          throw new RuntimeException("Authentication failed : Error password");
+          throw new RuntimeException("Invalid token");
         }
         return true;
       }
