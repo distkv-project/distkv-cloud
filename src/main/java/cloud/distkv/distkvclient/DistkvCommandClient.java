@@ -23,8 +23,8 @@ public class DistkvCommandClient {
   private static String SERVER_ADDRESS;
 
   @Value(value = "${distkv.server-address}")
-  public static void setServerAddress(String serverAddress) {
-    DistkvCommandClient.SERVER_ADDRESS = serverAddress;
+  public void setServerAddress(String serverAddress) {
+    SERVER_ADDRESS = serverAddress;
   }
 
   private DistkvCommandExecutor distkvCommandExecutor;
@@ -32,6 +32,7 @@ public class DistkvCommandClient {
 
   public DistkvCommandClient() {
     distkvParser = new DistkvParser();
+
   }
 
   /**
@@ -41,13 +42,8 @@ public class DistkvCommandClient {
    * @return Execute result.
    */
   public String exec(String command) {
-    try {
-      // Init distkv related component.
-      distkvCommandExecutor = new DistkvCommandExecutor(new DefaultDistkvClient(SERVER_ADDRESS));
-    } catch (Exception e) {
-      throw new DistkvInitException("++++++++++++++++++++Distkv Init Failed",e);
-    }
-
+    initDistkvClient();
+    //TODO (senyer) improve this.
     String result = "";
     try {
       DistkvParsedResult parsedResult = distkvParser.parse(command);
@@ -66,5 +62,15 @@ public class DistkvCommandClient {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
     }
     return result;
+  }
+
+  private void initDistkvClient() {
+    try {
+      // Init distkv related component.
+      distkvCommandExecutor = new DistkvCommandExecutor(new DefaultDistkvClient(SERVER_ADDRESS));
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new DistkvInitException("Distkv Init Failed", e);
+    }
   }
 }
