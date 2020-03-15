@@ -20,19 +20,18 @@ import org.springframework.stereotype.Component;
 @Component(value = "distkvCommandClient")
 public class DistkvCommandClient {
 
-  private static String SERVER_ADDRESS;
-
-  @Value(value = "${distkv.server-address}")
-  public void setServerAddress(String serverAddress) {
-    SERVER_ADDRESS = serverAddress;
-  }
-
   private DistkvCommandExecutor distkvCommandExecutor;
   private DistkvParser distkvParser;
 
-  public DistkvCommandClient() {
+  public DistkvCommandClient(@Value(value = "${distkv.server-address}") String serverAddress) {
     distkvParser = new DistkvParser();
-
+    try {
+      // Init distkv related component.
+      distkvCommandExecutor = new DistkvCommandExecutor(new DefaultDistkvClient(serverAddress));
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new DistkvInitException("Distkv Init Failed", e);
+    }
   }
 
   /**
@@ -42,7 +41,6 @@ public class DistkvCommandClient {
    * @return Execute result.
    */
   public String exec(String command) {
-    initDistkvClient();
     //TODO (senyer) improve this.
     String result = "";
     try {
@@ -62,15 +60,5 @@ public class DistkvCommandClient {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
     }
     return result;
-  }
-
-  private void initDistkvClient() {
-    try {
-      // Init distkv related component.
-      distkvCommandExecutor = new DistkvCommandExecutor(new DefaultDistkvClient(SERVER_ADDRESS));
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new DistkvInitException("Distkv Init Failed", e);
-    }
   }
 }
