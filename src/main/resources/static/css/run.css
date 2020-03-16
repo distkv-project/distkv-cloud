@@ -73,7 +73,7 @@ html,body{
   line-height: 24px;
   width: 0px;
 }
-
+/*button settings*/
 button {
   position: absolute;
   top:3%;
@@ -136,4 +136,15 @@ button::before, button::after {
   border-left-color: #60daaa;
   -webkit-transition: border-color 0s ease-out 0.1s, width 0.05s ease-out 0.1s, height 0.25s ease-out 0.15s;
   transition: border-color 0s ease-out 0.1s, width 0.25s ease-out 0.1s, height 0.25s ease-out 0.15s;
+}
+
+/*response setting*/
+.content{
+  top:9%;
+  left:25%;
+  position: absolute;
+  width: 715px;
+  height: 800px;
+  border: 1px solid red ;
+  border-radius: 1px;
 }

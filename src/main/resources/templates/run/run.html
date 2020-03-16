@@ -11,12 +11,15 @@
 <body>
 <div class="bg">
   <div class="logo">Distkv Cloud</div>
-    <div class="search-box">
-        <input class="search-txt" type="text" name="" placeholder="Welcome to Distkv Cloud!">
-    </div>
-    <button class="draw">Submit</button>
   <div id="app">
-    {{ info }}
+    <div class="search-box">
+      <input class="search-txt" type="text" v-model="cmdInfo"
+             placeholder="Welcome to Distkv Cloud!">
+    </div>
+    <button class="draw" v-on:click="send">Submit</button>
+    <div class="content">
+      <div v-html="response"></div>
+    </div>
   </div>
 </div>
 
@@ -26,22 +29,27 @@
         el: '#app',
         data() {
             return {
-                info: null
+                response: '',
+                cmdInfo: ''
             }
         },
-        mounted() {
-            axios
-            .post(
-                    /*'run/cmd',*/
-                    'http://127.0.0.1:8080/run/cmd',
-                    {
-                        cmd: 'str.put k13233 v233323'
-                    }
-            )
-            .then(response => (this.info = response.data))
-            .catch(function (error) { // 请求失败处理
-                console.log(error);
-            });
+        methods: {
+            send: function (event) {
+                axios
+                .post(
+                        /*'run/cmd',*/
+                        'http://127.0.0.1:8080/run/cmd',
+                        {
+                            cmd: this.cmdInfo
+                        }
+                )
+                .then(response => {
+                    this.response = this.response.concat(">_ "+response.data+"</br>");
+                })
+                .catch(function (error) { // 请求失败处理
+                    console.log(error);
+                });
+            }
         }
     })
 </script>
