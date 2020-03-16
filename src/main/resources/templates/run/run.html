@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Distkv, Ready Go!</title>
-  <!--<base th:href="${#request.getContextPath()}+'/'">--><!--Defined Base URL-->
+  <base th:href="${#request.getContextPath()}+'/'"><!--Defined Base URL-->
   <link rel="stylesheet" href="../../static/css/run.css">
   <script src="../../static/js/vue.min.js"></script>
   <script src="../../static/js/axios.min.js"></script>
@@ -11,7 +11,8 @@
 <body>
 <div class="bg">
   <div class="logo">Distkv Cloud</div>
-  <a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+  <a class="link-github"
+     href="https://github.com/distkv-project">https://github.com/distkv-project</a>
   <div id="app">
     <div class="search-box">
       <input class="search-txt" type="text" v-model="cmdInfo"
@@ -22,7 +23,7 @@
       <div v-html="response"></div>
     </div>
   </div>
-    <footer class="col-lg-12 copyright-footer">copyright &copy; distkv organization</footer>
+  <footer class="col-lg-12 copyright-footer">copyright &copy; distkv organization</footer>
 </div>
 
 <!--script-->
@@ -39,16 +40,18 @@
             send: function (event) {
                 axios
                 .post(
-                        /*'run/cmd',*/
-                        'http://127.0.0.1:8080/run/cmd',
+                        'run/cmd',
+                        /*'http://127.0.0.1:8080/run/cmd',*/
                         {
                             cmd: this.cmdInfo
                         }
                 )
                 .then(response => {
-                    this.response = this.response.concat(">_ "+this.cmdInfo+"</br>>_ "+response.data+"</br>");
+                    this.response = this.response.concat(
+                            "<div style='color: aqua'>>_</div> " + this.cmdInfo
+                            + "</br><div style='color: aqua'>>_</div> " + response.data + "</br>");
                 })
-                .catch(function (error) { // 请求失败处理
+                .catch(function (error) {
                     console.log(error);
                 });
             }

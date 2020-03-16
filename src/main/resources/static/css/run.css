@@ -3,9 +3,6 @@ html,body{
   height: 100%;
   padding: 0;
   margin: 0;
-/*  display: flex;
-  justify-content: center;
-  align-items: center;*/
 }
 
 /*background setting*/
@@ -67,9 +64,6 @@ html,body{
   width: 438px;
   padding: 0 6px;
 }
-/*.search-box:hover>.search-btn{
-  background: white;
-}*/
 .search-txt{
   border: none;
   background: none;
