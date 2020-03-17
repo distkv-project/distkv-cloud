@@ -3,21 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Distkv, Ready Go!</title>
-  <script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+  <base th:href="${#request.getContextPath()}+'/'"><!--Defined Base URL-->
   <link rel="stylesheet" href="../../static/css/run.css">
+  <script src="../../static/js/vue.min.js"></script>
+  <script src="../../static/js/axios.min.js"></script>
 </head>
 <body>
-<br id="my_area">
-<div class="link link--kukuri">
-  <p>Please type your Distkv command.</p>
+<div class="bg">
+  <div class="logo">Distkv Cloud</div>
+  <a class="link-github"
+     href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+  <div id="app">
+    <div class="search-box">
+      <input class="search-txt" type="text" v-model="cmdInfo"
+             placeholder="Welcome to Distkv Cloud!">
+    </div>
+    <button class="draw" v-on:click="send">Submit</button>
+    <div class="content">
+      <div v-html="response"></div>
+    </div>
+  </div>
+  <footer class="col-lg-12 copyright-footer">copyright &copy; distkv organization</footer>
 </div>
-<div>
-  <span id="tss"> dkv-cli> welcome ~ </span>
-</div>
-<div id="display_area">
-  <br/>
-</div>
-<label for="command_text"></label><input type="text" name="text" id="command_text" class="tl-price-input" style="width: 300px; height: 40px; font-size: 16px">
-<button type="button" class="ant-btn ant-btn-red" style="width: 100px; height: 30px; font-size: 14px" onclick="loadJSON()">run</button>
+
+<!--script-->
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                response: '',
+                cmdInfo: ''
+            }
+        },
+        methods: {
+            send: function () {
+                axios
+                .post(
+                        'run/cmd',
+                        /*'http://127.0.0.1:8080/run/cmd',*/
+                        {
+                            cmd: this.cmdInfo
+                        }
+                )
+                .then(response => {
+                    this.response = this.response.concat(
+                            "<div style='color: aqua'>>_</div> " + this.cmdInfo
+                            + "</br><div style='color: aqua'>>_</div> " + response.data + "</br>");
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }
+    })
+</script>
 </body>
 </html>

@@ -33,17 +33,6 @@ public class RunnerApi extends BaseController {
   }
 
   /**
-   * Navigate to run-vue dashboard.
-   *
-   * @return run/run-vue.html
-   */
-  @GetMapping("/vue")
-  @NoAuth
-  public String index1() {
-    return "run/run-vue";
-  }
-
-  /**
    * Execute cmd.
    *
    * @param cmd cmd content
