@@ -1,25 +1,53 @@
-html,body{
+html {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  font-size: 62.5%;
 }
 
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: normal 100% Arial, sans-serif;
+  font-size: 1.4rem;
+}
+/*flow layout*/
+.left{ width:30%; float:left}
+.right{ width:70%; float:right;}
+
 /*background setting*/
-.bg{
+.bg {
   background-size: 100% 100%;
   /*background: url(../img/bg.png) repeat #00a1f7;*/
-  background-image: linear-gradient(#66b1ff, #c2e7b0);
+  background-image: linear-gradient(#66b1ff, #3ac9a1);
   width: 100%;
   height: 100%;
 }
+/*react design*/
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: repeat(2,100px);
+}
+
+.area-1 {border: red 1px solid;position: relative;}
+.area-2 {border: red 1px solid;position: relative;}
+.area-3 {border: red 1px solid;position: relative;}
+.area-4 {border: red 1px solid;position: relative;}
+.area-5 {border: red 1px solid;position: relative;}
+.area-6 {border: red 1px solid;position: relative;}
+
+
 /*logo setting*/
-.logo{
-  font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
-  font-size: 31px;
+.logo {
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-size: 3.0rem;;
   color: white;
-  margin: 25px 16px;
-  padding: 1px;
+  margin: 1.4rem 1.4rem;
+  padding: 0.4rem;
   display: block;
   /*border: 7px double white ;
   border-radius: 7px;*/
@@ -29,42 +57,46 @@ html,body{
 .link-github {
   text-decoration: none;
   color: white;
-  position:absolute;
-  top:7%;
-  left:1%;
+  position: absolute;
+  top: 7%;
+  left: 1%;
 }
-.link-github:hover{
+
+.link-github:hover {
   color: skyblue;
 }
-.write{
+
+.write {
   height: 35px;
   width: 500px;
-  position:absolute;
-  top:50%;
-  left:40%;
-  transform:translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
   background: skyblue;
-  box-shadow:-5px 5px 0 rgba(0,0,0,0.2);
-  cursor:pointer;
+  box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   transition: all 0.5s;
 }
 
-.search-box{
+.search-box {
   position: absolute;
-  top:5%;
-  left:45%;
+  top: 5%;
+  left: 45%;
   width: 703px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: #2f3640;
   height: 23px;
   border-radius: 2px;
   padding: 6px;
 }
-.search-box:hover>.search-txt{
+
+.search-box:hover > .search-txt {
   width: 438px;
   padding: 0 6px;
 }
-.search-txt{
+
+.search-txt {
   border: none;
   background: none;
   outline: none;
@@ -76,11 +108,12 @@ html,body{
   line-height: 24px;
   width: 0px;
 }
+
 /*button settings*/
 button {
   position: absolute;
-  top:3%;
-  left:65%;
+  top: 3%;
+  left: 65%;
   float: right;
   background: none;
   border: 0;
@@ -96,6 +129,7 @@ button {
 
   vertical-align: middle;
 }
+
 button::before, button::after {
   box-sizing: border-box;
   content: '';
@@ -108,32 +142,39 @@ button::before, button::after {
   -webkit-transition: color 0.05s;
   transition: color 0.05s;
 }
+
 .draw::before, .draw::after {
   border: 2px solid transparent;
   width: 0;
   height: 0;
 }
+
 .draw::before {
   top: 0;
   left: 0;
 }
+
 .draw::after {
   bottom: 0;
   right: 0;
 }
+
 .draw:hover {
   color: #60daaa;
 }
+
 .draw:hover::before, .draw:hover::after {
   width: 100%;
   height: 100%;
 }
+
 .draw:hover::before {
   border-top-color: #60daaa;
   border-right-color: #60daaa;
   -webkit-transition: width 0.05s ease-out, height 0.25s ease-out 0.25s;
   transition: width 0.05s ease-out, height 0.25s ease-out 0.25s;
 }
+
 .draw:hover::after {
   border-bottom-color: #60daaa;
   border-left-color: #60daaa;
@@ -142,9 +183,9 @@ button::before, button::after {
 }
 
 /*response setting*/
-.content{
-  top:9%;
-  left:25%;
+.content {
+  top: 9%;
+  left: 25%;
   position: absolute;
   width: 715px;
   height: 800px;
@@ -153,7 +194,7 @@ button::before, button::after {
 }
 
 /*footer*/
-.copyright-footer{
+.copyright-footer {
   position: fixed;
   background-color: rgba(43, 166, 166, 0.5);
   color: #FFF;
