@@ -21,8 +21,8 @@ body {
 /*background setting*/
 .bg {
   background-size: 100% 100%;
-  /*background: url(../img/bg.png) repeat #00a1f7;*/
-  background-image: linear-gradient(#66b1ff, #3ac9a1);
+  background: url(../img/bg.png) repeat #00a1f7;
+  /*background-image: linear-gradient(#66b1ff, #3ac9a1);*/
   width: 100%;
   height: 100%;
 }
@@ -42,7 +42,8 @@ body {
 
 .area-1-1 {border: blue 1px solid;display: flex;}
 .area-1-2 {border: yellow 1px solid;display: flex;}
-
+.area-2-1 {border: blue 1px solid;float: left;width:70%; height:100%;}
+.area-2-2 {border: yellow 1px solid;float: left;width:20%; height:100%;}
 /*logo setting*/
 .logo {
   font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
@@ -65,17 +66,18 @@ body {
 }
 
 .search-box {
-  margin: 0 auto;
-  width: 70%;
-  /*transform: translate(-50%, -50%);*/
+  /*margin-top: 2%;
+  margin-left: 10%;
+  padding: 1rem;
+  width: 70%;*/
   background: #2f3640;
   border-radius: 3px;
   border: yellow 1px solid;
 }
 
 .search-box:hover > .search-txt {
-  width: 438px;
-  padding: 0 6px;
+  width: 100%;
+  padding: 0 0.5rem;
 }
 
 .search-txt {
@@ -85,18 +87,16 @@ body {
   float: left;
   padding: 0;
   color: white;
-  font-size: 18px;
+  font-size: 125%;
   transition: 0.4s;
-  line-height: 24px;
-  width: 0px;
+  line-height: 50%;
 }
 
 /*button settings*/
 button {
-  position: absolute;
-  top: 3%;
-  left: 65%;
-  float: right;
+  /*margin-top: 2%;
+  margin-left: 82%;
+  float: right;*/
   background: none;
   border: 0;
   box-sizing: border-box;
@@ -104,8 +104,7 @@ button {
   color: white;
   font-size: medium;
   font-weight: 700;
-  margin: 0;
-  padding: 0.5em 1em;
+  padding: 0.7em 1em;
   text-align: center;
   text-transform: capitalize;
 

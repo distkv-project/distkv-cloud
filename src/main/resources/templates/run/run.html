@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
   <title>Distkv, Ready Go!</title>
   <base th:href="${#request.getContextPath()}+'/'"><!--Defined Base URL-->
   <link rel="stylesheet" href="../../static/css/run.css">
@@ -11,37 +12,40 @@
 </head>
 <body>
 <div class="bg">
-  <div class="wrapper">
-    <div class="area-1">
-      <div class="area-1-1">
-        <div class="logo">Distkv Cloud</div>
+  <div id="app">
+    <div class="wrapper">
+      <div class="area-1">
+        <div class="area-1-1">
+          <div class="logo">Distkv Cloud</div>
+        </div>
+        <div class="area-1-2">
+          <a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+        </div>
       </div>
-      <div class="area-1-2">
-        <a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+
+      <div class="area-2">
+        <div class="area-2-1" >21
+          <!--<div class="search-box">
+            <input class="search-txt" type="text" v-model="cmdInfo"
+                   placeholder="Try typing a command">
+          </div>-->
+        </div>
+        <div class="area-2-2">22
+          <!--<button class="draw" v-on:click="send">Submit</button>-->
+        </div>
       </div>
+
+      <div class="area-3">3</div>
+      <div class="area-4">4</div>
+      <div class="area-5">5</div>
+      <div class="area-6">6</div>
     </div>
-
-    <div class="area-2">
-      <div class="search-box">2
-      <input class="search-txt" type="text" v-model="cmdInfo"
-             placeholder="Welcome to Distkv Cloud!">
-      </div>
-    </div>
-
-    <div class="area-3">3</div>
-    <div class="area-4">4</div>
-    <div class="area-5">5</div>
-    <div class="area-6">6</div>
-
   </div>
 
 
+  <!--
 
 
-
-  <!--<div id="app">
-
-    <button class="draw" v-on:click="send">Submit</button>
     <div class="content">
       <div v-html="response"></div>
     </div>
