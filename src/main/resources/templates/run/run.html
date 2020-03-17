@@ -13,24 +13,34 @@
 <div class="bg">
   <div class="wrapper">
     <div class="area-1">
-      <div class="logo">Distkv Cloud</div>
+      <div class="area-1-1">
+        <div class="logo">Distkv Cloud</div>
+      </div>
+      <div class="area-1-2">
+        <a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+      </div>
     </div>
-    <div class="area-2">2</div>
+
+    <div class="area-2">
+      <div class="search-box">2
+      <input class="search-txt" type="text" v-model="cmdInfo"
+             placeholder="Welcome to Distkv Cloud!">
+      </div>
+    </div>
+
     <div class="area-3">3</div>
     <div class="area-4">4</div>
     <div class="area-5">5</div>
     <div class="area-6">6</div>
+
   </div>
 
 
-  <!--<a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>-->
+
 
 
   <!--<div id="app">
-    <div class="search-box">
-      <input class="search-txt" type="text" v-model="cmdInfo"
-             placeholder="Welcome to Distkv Cloud!">
-    </div>
+
     <button class="draw" v-on:click="send">Submit</button>
     <div class="content">
       <div v-html="response"></div>

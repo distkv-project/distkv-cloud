@@ -30,7 +30,7 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: repeat(2,100px);
+  grid-template-rows: 1fr 10fr;
 }
 
 .area-1 {border: red 1px solid;position: relative;}
@@ -40,55 +40,37 @@ body {
 .area-5 {border: red 1px solid;position: relative;}
 .area-6 {border: red 1px solid;position: relative;}
 
+.area-1-1 {border: blue 1px solid;display: flex;}
+.area-1-2 {border: yellow 1px solid;display: flex;}
 
 /*logo setting*/
 .logo {
   font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   font-size: 3.0rem;;
   color: white;
-  margin: 1.4rem 1.4rem;
+  margin: 0.4rem 1.4rem;
   padding: 0.4rem;
-  display: block;
-  /*border: 7px double white ;
-  border-radius: 7px;*/
-  position: absolute;
 }
-
 .link-github {
   text-decoration: none;
   color: white;
-  position: absolute;
-  top: 7%;
-  left: 1%;
+  margin: 0.2rem 1.4rem;
+  padding: 0.2rem;
 }
-
 .link-github:hover {
   color: skyblue;
-}
-
-.write {
-  height: 35px;
-  width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  background: skyblue;
-  box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.5s;
+  float: left;
+  margin: 0.2rem 1.4rem;
+  padding: 0.2rem;
 }
 
 .search-box {
-  position: absolute;
-  top: 5%;
-  left: 45%;
-  width: 703px;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  width: 70%;
+  /*transform: translate(-50%, -50%);*/
   background: #2f3640;
-  height: 23px;
-  border-radius: 2px;
-  padding: 6px;
+  border-radius: 3px;
+  border: yellow 1px solid;
 }
 
 .search-box:hover > .search-txt {
