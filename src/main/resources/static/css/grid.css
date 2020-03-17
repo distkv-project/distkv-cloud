@@ -8,8 +8,8 @@ html,body{
 
 .wrapper {
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    grid-template-rows: repeat(2,100px);
 }
 
 .grid1{
@@ -20,6 +20,7 @@ html,body{
     grid-row-end: 8;
     border: white 2px solid;
     text-align: center;
+    vertical-align: middle;
     color: white;
     font-size: larger;
     font-weight: bold;
