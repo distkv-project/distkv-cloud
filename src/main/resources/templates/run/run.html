@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-  <title>Distkv, Ready Go!</title>
-  <base th:href="${#request.getContextPath()}+'/'"><!--Defined Base URL-->
-  <link rel="stylesheet" href="../../static/css/run.css">
-  <script src="../../static/js/vue.min.js"></script>
-  <script src="../../static/js/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Distkv, Ready Go!</title>
+    <base th:href="${#request.getContextPath()}+'/'"><!--Defined Base URL-->
+    <link rel="stylesheet" href="../../static/css/run.css">
+    <script src="../../static/js/vue.min.js"></script>
+    <script src="../../static/js/axios.min.js"></script>
 </head>
 <body>
 <div class="bg">
-  <div id="app">
-    <div class="wrapper">
-      <div class="area-1">
-        <div class="area-1-1">
-          <div class="logo">Distkv Cloud</div>
-        </div>
-        <div class="area-1-2">
-          <a class="link-github" href="https://github.com/distkv-project">https://github.com/distkv-project</a>
-        </div>
-      </div>
+    <div id="app">
+        <div class="wrapper">
+            <div class="area-1">
+                <div class="area-1-1">
+                    <div class="logo">Distkv Cloud</div>
+                </div>
+                <div class="area-1-2">
+                    <a class="link-github"
+                       href="https://github.com/distkv-project">https://github.com/distkv-project</a>
+                </div>
+            </div>
 
-      <div class="area-2">
-        <div class="area-2-1" >21
-          <!--<div class="search-box">
-            <input class="search-txt" type="text" v-model="cmdInfo"
-                   placeholder="Try typing a command">
-          </div>-->
-        </div>
-        <div class="area-2-2">22
-          <!--<button class="draw" v-on:click="send">Submit</button>-->
-        </div>
-      </div>
+            <div class="area-2">
+                <div class="area-2-1">
+                    <div class="search-box">
+                        <input class="search-txt" type="text" v-model="cmdInfo"
+                               placeholder="Try typing a command">
+                    </div>
+                </div>
+                <div class="area-2-2">
+                    <button class="draw" v-on:click="send">Submit</button>
+                </div>
+            </div>
 
-      <div class="area-3">3</div>
-      <div class="area-4">4</div>
-      <div class="area-5">5</div>
-      <div class="area-6">6</div>
+            <div class="area-3"></div>
+            <div class="area-4"></div>
+            <div class="area-5">
+                <div class="content">
+                    <div v-html="response"></div>
+                </div>
+            </div>
+            <div class="area-6"></div>
+        </div>
     </div>
-  </div>
 
 
-  <!--
-
-
-    <div class="content">
-      <div v-html="response"></div>
-    </div>
-  </div>
-  <footer class="col-lg-12 copyright-footer">copyright &copy; distkv organization</footer>-->
+    <footer class="copyright-footer"><a class="link-footer" href="https://github.com/distkv-project">copyright &copy; distkv organization</a></footer>
 </div>
 
 <!--script-->
@@ -66,21 +64,28 @@
         methods: {
             send: function () {
                 axios
-                .post(
-                        'run/cmd',
-                        /*'http://127.0.0.1:8080/run/cmd',*/
+                    .post(
+                            /*'run/cmd',*/
+                            'http://127.0.0.1:8080/run/cmd',
                         {
                             cmd: this.cmdInfo
                         }
-                )
-                .then(response => {
-                    this.response = this.response.concat(
-                            "<div style='color: aqua'>>_</div> " + this.cmdInfo
-                            + "</br><div style='color: aqua'>>_</div> " + response.data + "</br>");
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+                    )
+                    .then(response => {
+                        console.log(response.data)
+                        /*echo cmd*/
+                        this.response = this.response.concat(
+                            "<div class='cmd-echo-line'><div class='terminal-cmd'>>_&nbsp;&nbsp</div><div class='cmd-echo  shine_white'>" + this.cmdInfo + "</div></div>");
+
+                        /*echo response*/
+                        this.response = this.response.concat(
+                            "</br><div class='response-echo-line'><div class='terminal-response'>>_&nbsp;&nbsp</div><div class='response-echo shine_white'>" + response.data +"</div></div></br>");
+
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         }
     })

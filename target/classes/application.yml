@@ -15,7 +15,7 @@ spring:
 
 # distkv config
 distkv:
-  server-address: distkv://127.0.0.1:8082
+  server-address: distkv://127.0.0.1:8083
 
 # custom jwt expire time
 jwt:

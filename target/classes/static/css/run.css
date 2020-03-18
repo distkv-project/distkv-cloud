@@ -14,10 +14,6 @@ body {
   font: normal 100% Arial, sans-serif;
   font-size: 1.4rem;
 }
-/*flow layout*/
-.left{ width:30%; float:left}
-.right{ width:70%; float:right;}
-
 /*background setting*/
 .bg {
   background-size: 100% 100%;
@@ -29,79 +25,52 @@ body {
 /*react design*/
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  grid-template-rows: repeat(2,1fr);
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 7fr;
 }
-
-.area-1 {
-  background-color: red;
-  border: white 1px solid;
-}
-.area-2 {
-  background-color: red;
-  border: white 1px solid;
-}
-.area-3 {
-  background-color: red;
-  border: white 1px solid;
-}
-
-
+.area-1 {position: relative;}
+.area-2 {position: relative;}
+.area-3 {position: relative;}
+.area-4 {position: relative;}
+.area-5 {border: red 1px solid;position: relative;}
+.area-6 {position: relative;}
+.area-1-1 {display: flex;}
+.area-1-2 {display: flex;}
+.area-2-1 {float: left;width:70%; height:100%;}
+.area-2-2 {float: left;width:20%; height:100%;}
 /*logo setting*/
 .logo {
   font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
-  font-size: 4.1rem;;
+  font-size: 3.0rem;;
   color: white;
-  margin: 1.4rem 1.4rem;
+  margin: 0.4rem 1.4rem;
   padding: 0.4rem;
-  display: block;
-  /*border: 7px double white ;
-  border-radius: 7px;*/
-  position: absolute;
 }
-
 .link-github {
   text-decoration: none;
   color: white;
-  position: absolute;
-  top: 7%;
-  left: 1%;
+  margin: 0.2rem 1.4rem;
+  padding: 0.2rem;
 }
-
 .link-github:hover {
   color: skyblue;
+  float: left;
+  margin: 0.2rem 1.4rem;
+  padding: 0.2rem;
 }
-
-.write {
-  height: 35px;
-  width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  background: skyblue;
-  box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.5s;
-}
-
+/*search settings*/
 .search-box {
-  position: absolute;
-  top: 5%;
-  left: 45%;
-  width: 703px;
-  transform: translate(-50%, -50%);
+  float: right;
+  margin-top: 2%;
+  padding: 0.8rem;
+  width: 80%;
   background: #2f3640;
-  height: 23px;
-  border-radius: 2px;
-  padding: 6px;
+  border-radius: 0.3rem;
 }
-
 .search-box:hover > .search-txt {
-  width: 438px;
-  padding: 0 6px;
+  width: 100%;
+  padding: 0 0.5rem;
 }
-
 .search-txt {
   border: none;
   background: none;
@@ -109,33 +78,27 @@ body {
   float: left;
   padding: 0;
   color: white;
-  font-size: 18px;
+  font-size: 125%;
   transition: 0.4s;
-  line-height: 24px;
-  width: 0px;
+  line-height: 50%;
 }
-
 /*button settings*/
 button {
-  position: absolute;
-  top: 3%;
-  left: 65%;
-  float: right;
+  float: left;
+  position: relative;
+  margin-top: 7%;
   background: none;
   border: 0;
   box-sizing: border-box;
   box-shadow: inset 0 0 0 2px white;
   color: white;
   font-size: medium;
-  font-weight: 700;
-  margin: 0;
-  padding: 0.5em 1em;
+  font-weight: bold;
+  padding: 0.6em;
   text-align: center;
   text-transform: capitalize;
-
   vertical-align: middle;
 }
-
 button::before, button::after {
   box-sizing: border-box;
   content: '';
@@ -143,74 +106,100 @@ button::before, button::after {
   width: 100%;
   height: 100%;
 }
-
 .draw {
   -webkit-transition: color 0.05s;
   transition: color 0.05s;
 }
-
 .draw::before, .draw::after {
-  border: 2px solid transparent;
+  border: 0.1em solid transparent;
   width: 0;
   height: 0;
 }
-
 .draw::before {
   top: 0;
   left: 0;
 }
-
 .draw::after {
   bottom: 0;
   right: 0;
 }
-
 .draw:hover {
   color: #60daaa;
 }
-
 .draw:hover::before, .draw:hover::after {
   width: 100%;
   height: 100%;
 }
-
 .draw:hover::before {
   border-top-color: #60daaa;
   border-right-color: #60daaa;
   -webkit-transition: width 0.05s ease-out, height 0.25s ease-out 0.25s;
   transition: width 0.05s ease-out, height 0.25s ease-out 0.25s;
 }
-
 .draw:hover::after {
   border-bottom-color: #60daaa;
   border-left-color: #60daaa;
   -webkit-transition: border-color 0s ease-out 0.1s, width 0.05s ease-out 0.1s, height 0.25s ease-out 0.15s;
   transition: border-color 0s ease-out 0.1s, width 0.25s ease-out 0.1s, height 0.25s ease-out 0.15s;
 }
-
 /*response setting*/
 .content {
-  top: 9%;
-  left: 25%;
-  position: absolute;
-  width: 715px;
-  height: 800px;
-  /*border: 1px solid red ;*/
-  border-radius: 1px;
+  position: relative;
+  border: 2px solid blue ;
+  border-radius: 0.3rem;
+  height:100%;
+  width: 100%;
 }
-
+.cmd-echo-line {
+  width:90%;
+  border: 1px solid lime ;
+  float: left;
+}
+.terminal-cmd {
+  float: left;
+  color: red;
+  border: 1px solid blue ;
+}
+.cmd-echo {
+  float: left;
+  color: yellow;
+  border: 1px solid yellow ;
+  width:90%;
+  word-break: break-all;
+  white-space: normal;
+}
+.response-echo-line {width:90%;border: 1px solid brown ;float: left;}
+.terminal-response{
+  float: left;
+  color: red;
+  border: 1px solid blue;}
+.response-echo{
+  float: left;
+  color: yellow;
+  border: 1px solid yellow;
+  width:90%;
+  word-break: break-all;
+  white-space: normal;
+}
 /*footer*/
 .copyright-footer {
+  font-size: smaller;
   position: fixed;
-  background-color: rgba(43, 166, 166, 0.5);
+  /*background-color: rgba(43, 166, 166, 0.5);*/
   color: #FFF;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
-  height: 20px;
-  line-height: 20px;
+  height: 1.3rem;
+  line-height: 1.3rem;
 }
-
+.link-footer {
+  text-decoration: none;
+  color: white;
+}
+.link-footer:hover {
+  color: wheat;
+}
 
 
