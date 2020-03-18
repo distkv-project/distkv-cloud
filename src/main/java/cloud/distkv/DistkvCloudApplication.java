@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DistkvCloudApplication {
 
   public static void main(String[] args) {
-      SpringApplication.run(DistkvCloudApplication.class, args);
+    SpringApplication.run(DistkvCloudApplication.class, args);
   }
 }
