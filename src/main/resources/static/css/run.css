@@ -102,7 +102,7 @@ body {
   box-sizing: border-box;
   content: '';
   position: absolute;
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 .area-2-2 .draw {
@@ -141,7 +141,7 @@ body {
   -webkit-transition: border-color 0s ease-out 0.1s, width 0.05s ease-out 0.1s, height 0.25s ease-out 0.15s;
   transition: border-color 0s ease-out 0.1s, width 0.25s ease-out 0.1s, height 0.25s ease-out 0.15s;
 }
-.area-3 button {
+.area-3 .clear {
   margin-top: 10%;
   background: none;
   border: 0.1rem solid  #613636;
@@ -154,7 +154,7 @@ body {
   text-transform: capitalize;
   vertical-align: middle;
 }
-.area-3 button:hover {
+.area-3 .clear:hover {
   color: #60daaa;
   border: 0.1rem solid  white;
 }
@@ -216,7 +216,7 @@ body {
 }
 /*footer*/
 .copyright-footer {
-  font-size: smaller;
+  font-size: large;
   position: fixed;
   color: #FFF;
   bottom: 0;
@@ -224,7 +224,8 @@ body {
   right: 0;
   text-align: center;
   height: 1.3rem;
-  line-height: 1.3rem;
+  line-height: 1.1rem;
+  margin-bottom: 0.2rem;
 }
 .link-footer {
   text-decoration: none;
