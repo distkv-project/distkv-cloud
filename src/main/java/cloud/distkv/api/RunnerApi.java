@@ -1,13 +1,14 @@
 package cloud.distkv.api;
 
+
 import cloud.distkv.common.annotations.NoAuth;
 import cloud.distkv.common.response.BaseController;
-import cloud.distkv.distkvclient.DistkvCommandClient;
-
+import cloud.distkv.service.DistkvService;
 import javax.annotation.Resource;
-
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class RunnerApi extends BaseController {
 
   @Resource
-  private DistkvCommandClient distkvCommandClient;
+  private DistkvService distkvService;
 
   /**
    * Navigate to run dashboard.
@@ -44,7 +45,7 @@ public class RunnerApi extends BaseController {
   public String cmd(@RequestBody JSONObject command) {
     String code = command.get("command").toString();
     //TODO (senyer) Add validate check. Make sure the format of each command is legal.
-    return distkvCommandClient.exec(code);
+    return distkvService.exec(code);
   }
 
 

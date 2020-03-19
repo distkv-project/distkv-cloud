@@ -7,6 +7,8 @@ public enum Msg {
   AUTHORIZATION("Unauthorized", 401),
   AUTHENTICATION("Authentication failure", 402),
   HTTP_REQUEST_ERROR("Unsupported Request", 403),
+  DISTKV_ERROR("Distkv operation Error", 404),
+  INCORRECT_TYPE("Sorry, incorrect request type.", 801),
   INNER_ERROR("Inner Error", 500);
 
   private String desc;
