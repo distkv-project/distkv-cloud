@@ -1,6 +1,5 @@
 package cloud.distkv.api;
 
-
 import cloud.distkv.common.annotations.NoAuth;
 import cloud.distkv.common.response.BaseController;
 import cloud.distkv.service.DistkvService;

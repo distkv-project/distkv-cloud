@@ -1,7 +1,7 @@
 package cloud.distkv.common.response;
 
 /**
- * The exception of distkv client operation;
+ * The exception of distkv client operation.
  */
 public class DistkvException extends RuntimeException {
 
