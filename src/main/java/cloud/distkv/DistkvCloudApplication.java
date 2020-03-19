@@ -9,5 +9,4 @@ public class DistkvCloudApplication {
   public static void main(String[] args) {
     SpringApplication.run(DistkvCloudApplication.class, args);
   }
-
 }

@@ -1,7 +1,7 @@
 server:
   servlet:
     context-path: /
-  port: 8080
+  port: 12333
 
 spring:
   thymeleaf:
@@ -12,6 +12,10 @@ spring:
     encoding: UTF-8
   resources:
     static-locations: classpath:/static/,classpath:/templates/
+
+# distkv config
+distkv:
+  server-address: distkv://127.0.0.1:8082
 
 # custom jwt expire time
 jwt:
