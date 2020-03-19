@@ -15,6 +15,12 @@ public class GlobalExceptionHandler {
     return new R(Msg.HTTP_REQUEST_ERROR, ex.getMessage());
   }
 
+  @ExceptionHandler(DistkvException.class)
+  public R handDistkvException(DistkvException ex) {
+    log.error("Distkv operation Error  {} ", ex.toString());
+    return new R(Msg.DISTKV_ERROR, ex.getMessage());
+  }
+
   @ExceptionHandler(Exception.class)
   public R handUnkonwException(Exception ex) {
     log.error("Unknown error  {} ", ex.toString());
