@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * Distkv dashboard.
  */
 @Controller
-@RequestMapping("/run")
+@RequestMapping("/sh")
 @CrossOrigin
 public class RunnerApi extends BaseController {
 
@@ -33,16 +33,16 @@ public class RunnerApi extends BaseController {
   }
 
   /**
-   * Execute cmd.
+   * Execute a command.
    *
-   * @param cmd cmd content
-   * @return result
+   * @param command The command to execute.
+   * @return Execute result.
    */
-  @PostMapping("cmd")
+  @PostMapping("command")
   @ResponseBody
   @NoAuth
-  public String cmd(@RequestBody JSONObject cmd) {
-    String code = cmd.get("cmd").toString();
+  public String cmd(@RequestBody JSONObject command) {
+    String code = command.get("command").toString();
     //TODO (senyer) Add validate check. Make sure the format of each command is legal.
     return distkvCommandClient.exec(code);
   }
