@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
  * Distkv dashboard.
  */
 @Controller
-@RequestMapping("/sh")
 @CrossOrigin
 public class RunnerApi extends BaseController {
 
@@ -26,7 +25,7 @@ public class RunnerApi extends BaseController {
    *
    * @return run/run.html
    */
-  @GetMapping()
+  @GetMapping("/")
   @NoAuth
   public String index() {
     return "run/run";
