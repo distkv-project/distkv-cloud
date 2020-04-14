@@ -1,11 +1,9 @@
 package cloud.distkv.common.response;
 
-import com.distkv.common.exception.ErrorCodeEnum;
-
 /**
  * The exception of distkv init connection;
  */
-public class DistkvInitException extends RuntimeException {
+public class DistkvInitException extends DistkvException {
 
   public DistkvInitException(String errorMessage) {
     super(errorMessage);
