@@ -1,43 +1,43 @@
 package cloud.distkv.api;
 
 import cloud.distkv.common.annotations.DoAuth;
-import cloud.distkv.common.annotations.NoAuth;
 import cloud.distkv.common.response.R;
 import cloud.distkv.common.response.BaseController;
+import cloud.distkv.dto.Conditions;
+import cloud.distkv.service.QueryService;
+import cloud.distkv.service.WriteService;
+import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Distkv restful request by distkv-cloud.
  */
-@Controller
+@RestController
 @RequestMapping("/")
 @Slf4j
 public class IndexApi extends BaseController {
 
-  @GetMapping()
-  @NoAuth
-  public String index() {
-    return "index";
-  }
+  @Resource
+  private QueryService queryService;
+  @Resource
+  private WriteService writeService;
 
-  @PostMapping("query")
-  @ResponseBody
+  @GetMapping("query")
   @DoAuth
-  public R query() {
-    //TODO (senyer) finish it.
-    return error("unimplemented");
+  public R query(@NotNull Conditions conditions) {
+    // TODO(senyer) valid check. Conditions need to be properly verified.
+    return ok(queryService.query(conditions));
   }
 
   @PostMapping("write")
-  @ResponseBody
   @DoAuth
-  public R write() {
-    //TODO (senyer) finish it.
-    return error("unimplemented");
+  public R write(@NotNull Conditions conditions) {
+    // TODO(senyer) valid check. Conditions need to be properly verified.
+    return ok(writeService.write(conditions));
   }
 }
