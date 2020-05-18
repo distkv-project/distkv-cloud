@@ -15,7 +15,7 @@ jobs:
         with:
           java-version: 1.8
       - name: install the dependencies
-        run: ./scripts/install_dependencies.sh
+        run: ./script/install_dependencies.sh
       - name: Build with Maven
         run: mvn clean install -DskipTests
       - name: distkv cloud test case result
