@@ -8,8 +8,8 @@ import com.distkv.common.exception.DictKeyNotFoundException;
 import com.distkv.common.exception.DistkvException;
 import com.distkv.common.exception.DistkvListIndexOutOfBoundsException;
 import com.distkv.common.exception.KeyNotFoundException;
-import com.distkv.common.exception.SortedListMemberNotFoundException;
-import com.distkv.common.exception.SortedListTopNumIsNonNegativeException;
+import com.distkv.common.exception.SlistMemberNotFoundException;
+import com.distkv.common.exception.SlistTopNumIsNonNegativeException;
 import com.distkv.parser.DistkvParser;
 import com.distkv.parser.po.DistkvParsedResult;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -56,9 +56,9 @@ public class DistkvServiceImpl implements DistkvService {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
     } catch (KeyNotFoundException e) {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
-    } catch (SortedListMemberNotFoundException e) {
+    } catch (SlistMemberNotFoundException e) {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
-    } catch (SortedListTopNumIsNonNegativeException e) {
+    } catch (SlistTopNumIsNonNegativeException e) {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
     } catch (DistkvException e) {
       result = ("errorCode: " + e.getErrorCode() + ";\n Detail: " + e.getMessage());
