@@ -18,3 +18,4 @@ jobs:
         run: mvn clean install -DskipTests
       - name: distkv cloud test case result
         run: mvn test
+
